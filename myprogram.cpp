@@ -39,7 +39,7 @@ int main() {// fõ "beépõ" függvény - azaz törzsprogram,azaz a program belepesi p
 				std::cout << "na nezzunk egy kis pointeresdit:\n " << std::endl ;
 				int egyNormalValtozo = 4;
 				int* egyNormalValtozoPointere = &egyNormalValtozo; 
-				std::cout << "itt: " << egyNormalValtozo  << " itt lakik: " << &egyNormalValtozo << " " << " emmeg a pojinter: " << egyNormalValtozoPointere <<std::endl ;
+				std::cout << "valtozo erteke: " << egyNormalValtozo  << " itt lakik: " << &egyNormalValtozo << " " << " emmeg a pojinter: " << egyNormalValtozoPointere << " dereferált ertek vagymif@sz: " << *egyNormalValtozoPointere  <<std::endl ;
 				std::cout << std::endl;
 				std::cout << "jo\n vagy nem jo?" << std::endl ;
 			break;
