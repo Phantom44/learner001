@@ -1,16 +1,16 @@
 /* 	-notepad run: cmd /k cd "c:\work\cpp\Github\learner001\" && gcc cppelso.cpp a.exe
 	-errol a honlaprol kell majd frissitenem a mingw32-t mert a pali azt mondja mashonnan installalt neha nem megyen.: http://www.osdn.net/pfoject/mingw
-	- .cpp file az ugynevezett forraskod file ,  .h az fejlécfile. és a saját header fileokat "idézojelek" !! koze kell rakni , a standardokat <kacsacsor> !
+	- .cpp file az ugynevezett forraskod file ,  .h az fejlécfile. és az altalam irt header file-okat "idézojelek" !! koze kell rakni , a standardokat <kacsacsor> !
 	- mt 733908469
 */
 
-#include <iostream> // ez egy behivott file, elore elkeszitettek a mesterek standard libraryt-abban van. Tartalmaz classokat es ojjektumokat is
-#include <windows.h> // valami nemtommi , nem talaltam a cpp-reference-ben. asszem gui - azaz grafikus library windowsra. de ennek utana köll nézni.
-using namespace std;  //a namespace az nemtom mia f.-ene, :: a jele.
+#include <iostream> // ez egy behivott file, elore elkeszitettek a cpp nagymesterek standard libraryt-abban van. Tartalmaz classokat es ojjektumokat is
+#include <windows.h> // valami nemtommi , nem talaltam a cpp-reference-ben,csak a wikiben. Asszem gui - azaz grafikus library windowsra. de ennek utana köll nézni egyszer.
+using namespace std;  //a namespace az nemtom mia fittyfene, :: a jele 
 
 
-int heapValtozo; //?? vagy global??
-void egyikFunkcio(); 
+int heapValtozo; //?? vagy global valtozo ??
+void egyikFunkcio(); // ezt hogy hivjak? ez a deklarálás?  és akkor mi a definiálás?
 void masikFunkcio();
 
 
