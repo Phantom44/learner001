@@ -2,7 +2,26 @@
 	-errol a honlaprol kell majd frissitenem a mingw32-t mert a pali azt mondja mashonnan installalt neha nem megyen.: http://www.osdn.net/pfoject/mingw
 	- .cpp file az ugynevezett forraskod file ,  .h az fejlécfile. és az altalam irt header file-okat "idézojelek" !! koze kell rakni , a standardokat <kacsacsor> !
 	- mt 733908469
+	- amugy: https://www.youtube.com/playlist?list=PLZPZq0r_RZOMHoXIcxze_lP97j2Ase2on
 */
+
+/*
+kerdesek:
+-válzozok: heap, globalis es lokalis (függvényen belülröl kihozatal)?,
+(tobb helyen emlegetik,hogy x byte-ot foglal el egy valtozo,miert fontos ez ?)
+
+-mi az a namespace? ::,
+-és van-e köze az oop-hez? (objektumokhoz),(oke tudom mi a construktor es?)
+- class avagy nduljunk ki a https://en.cppreference.com/w/ -honlapból. a pöttyözés.  std::cin.ignore() ; a referencia honlapon hogyan?
+
+-oop filestruktúra (h mint deklaráció és .cpp mint definició?)
+
+- << operator , bar nem biztos,hogy ezt most meg kell ertenem.,
+
+-arduino ide-t letoltottem kivancsisagbol ,de ott nincs main csak loop. de akkor a forditas szempontjabol? (lib)
+*/
+
+
 
 #include <iostream> // ez egy behivott file, elore elkeszitettek a cpp nagymesterek standard libraryt-abban van. Tartalmaz classokat es ojjektumokat is
 #include <windows.h> // valami nemtommi , nem talaltam a cpp-reference-ben,csak a wikiben. Asszem gui - azaz grafikus library windowsra. de ennek utana köll nézni egyszer.
