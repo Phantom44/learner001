@@ -1,5 +1,5 @@
 ﻿// MyProgram.cpp : Defines the entry point for the application.
-//
+// v0.5
 
 #include "MyProgram.h"
 
@@ -13,15 +13,21 @@
 
 /*
 kerdesek:
--válzozok: heap, globalis es lokalis (függvényen belülröl kihozatal)?,
-(tobb helyen emlegetik,hogy x byte-ot foglal el egy valtozo,avagy miert fontos ez - kezelni kell a memoria teruletet vagy csak figyelembe venni?)
-- *p + 3 = p[3] jelölés egyenloséget fejez ki, ami pointer aritmetika és tömb indexelés közötti kapcsolatot mutatja be.
--mi az a namespace? ::,
--és van-e köze az oop-hez? (objektumokhoz),(oke tudom mi a construktor es?)
-- class avagy induljunk ki a https://en.cppreference.com/w/ -honlapból. a pöttyözés.  std::cin.ignore() ; a referencia honlapon hogyan?
-- van pl egy library wxWidgets (nem tudom kukáztam a netrol https://www.youtube.com/watch?v=BjQhp0eHmJw&list=PLFk1_lkqT8MbVOcwEppCPfjGOGhLvcf9G  , annak vannak heather filejai pl include folder,ott látom a benne használható ?metódusokat?)
+- válzozok memoria foglalas szerint: stack-heap-global. 
+					stack automatikus es automatikusan meg is szunik. "en csak belsonek szoktam hivni"
+					Heap (manualis! - es lehet kuslo pl csak cpp-n beluli): new int valtozo - de a prg vegen delete valtozo! 
+					globalis (avagy static) "linkelem" a main-en kivul. Automatikus a kezelese.
 
--oop filestruktúra (h mint deklaráció és .cpp mint definició?) implementacio!
+- *p + 3 = p[3] jelölés egyenloséget fejez ki, ami pointer aritmetika és tömb indexelés közötti kapcsolatot mutatja be. (erre valaszoltunk ezt megegyszer at kell neznem)
+
+- https://en.cppreference.com/w/ - nehez kezelni,de inkabb a peldak fontosak. https://cplusplus.com/
+
+- van pl egy library wxWidgets (nem tudom kukáztam a netrol https://www.youtube.com/watch?v=BjQhp0eHmJw&list=PLFk1_lkqT8MbVOcwEppCPfjGOGhLvcf9G  
+
+- fogalmak:	Declaration (deklaráció) Megadja az azonosító nevét és típusát, de nem foglal hozzá memóriát sem tartalmazza a függvény törzsét- valahol mashol definialjuk
+			Definition (definíció) Az a deklaráció, ami memóriát foglal (változó esetén) vagy tartalmazza a függvény törzsét .
+			Implementation (implementáció) ? Funkciók esetén a függvény törzsét jelöli, tehát maga a kód ?
+			Assignment (?) megmondjuk a forditonak,hogy rakja azt az erteket oda bele
 
 - << operator , bar nem biztos,hogy ezt most meg kell ertenem.,
 
