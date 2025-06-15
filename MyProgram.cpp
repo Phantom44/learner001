@@ -47,15 +47,16 @@ kerdesek:
 
 #include <iostream> // ez egy behivott file, elore elkeszitettek a cpp nagymesterek standard libraryt-abban van. Tartalmaz classokat es ojjektumokat is
 #include <windows.h> // valami nemtommi , nem talaltam a cpp-reference-ben,csak a wikiben. Asszem gui - azaz grafikus library windowsra. de ennek utana köll nézni egyszer.
-using namespace std;  //a namespace az nemtom mia fittyfene, :: a jele 
+using namespace std;  // :: operatorral tudom meghatarozni,hogy ha pl van egy ugyanolyan nevu funkcio,akkor melyik namespace verziot vegye elo a prg. pl alfa::f() vagy beta::f()
 
 
-int heapValtozo; //?? vagy global valtozo ??
-void egyikFunkcio(); // ezt hogy hivjak? ez a deklarálás?  és akkor mi a definiálás?
+int globValtozo; // ez global
+// new heapValtozo; // ez meg heap
+void egyikFunkcio(); // csak szoltunk, h lesz egy ilyen tehat deklaracio
 void masikFunkcio();
 
 
-int main() {// fõ "beépõ" függvény - azaz törzsprogram,azaz a program belepesi pontja. De miért int - who knows...? (oké 0-a jó kimenete,but who cares?) 
+int main() {// fõ "beépõ" függvény - azaz törzsprogram kezdete. Vajon miért int...? (oké 0-a jó kimenete,but who cares?) 
 
 	SetConsoleCP(1250);  //elvileg magyarítás 
 	SetConsoleOutputCP(1250); // ja és a notepadot is át kellett tennem Central european- 1250-re.
@@ -68,7 +69,7 @@ int main() {// fõ "beépõ" függvény - azaz törzsprogram,azaz a program bele
 	std::cout << "3) hahaha lehetoség" << std::endl;
 	std::cout << "4) forszarozas" << std::endl;
 	std::cout << "5) tömb változó:  " << std::endl;
-	std::cout << "6) valami ide nemvalasztas -halom- heapvaltozo:  " << heapValtozo << std::endl; //aznemtommiaf@sz
+	std::cout << "6) valami ide nemvalasztas globvaltozo:  " << globValtozo << std::endl;
 	std::cout << "Válassz egy lehetoséget (1-6): ";
 	std::cin >> valasztas;
 
@@ -78,11 +79,12 @@ int main() {// fõ "beépõ" függvény - azaz törzsprogram,azaz a program bele
 		std::cout << "Elso lehetoség" << std::endl;
 		std::cout << "funyiro-kapa motorja: briggs quantum xl 55  model type: 128802-0910-01 code: 99022557 briggs quantum xl 55  \n - de te ezzel ne is foglalkozz. lol." << std::endl;
 		std::cout << "na nezzunk egy kis pointeresdit:\n " << std::endl;
-		int egyNormalValtozo = 4;
-		int* egyNormalValtozoPointere = &egyNormalValtozo;
-		std::cout << "valtozo erteke: " << egyNormalValtozo << " itt lakik: " << &egyNormalValtozo << " " << " emmeg a pojinter: " << egyNormalValtozoPointere << " dereferált ertek vagymif@sz: " << *egyNormalValtozoPointere << std::endl;
+		int egyStackValtozo = 4;
+		int* egyStackValtozoPointere = &egyStackValtozo;
+		std::cout << "valtozo erteke: " << egyStackValtozo << " itt lakik: " << &egyStackValtozo << " " << " emmeg a pojinter: " << egyStackValtozoPointere << " dereferált ertek vagymif@sz: " << *egyStackValtozoPointere << std::endl;
 		std::cout << std::endl;
-		std::cout << "jo\n vagy nem jo?" << std::endl;
+		std::cout << "jo vagy nem jo? (y or n)" << std::endl;
+			
 		break;
 	}
 
@@ -91,7 +93,7 @@ int main() {// fõ "beépõ" függvény - azaz törzsprogram,azaz a program bele
 		std::cout << "masodik lehetoség:" << std::endl;
 		std::string szovegValtozoNev;
 		std::cout << std::endl;
-		heapValtozo = 10;   // fentiheap kerdesmukodik-e, csakmertnemertem
+		globValtozo = 10;   // fentiheap kerdesmukodik-e, csakmertnemertem
 		egyikFunkcio();     //
 		std::cout << " Hello,mi a neved te nyomesz? '\n' ";
 		std::cin >> szovegValtozoNev;
@@ -126,8 +128,8 @@ int main() {// fõ "beépõ" függvény - azaz törzsprogram,azaz a program bele
 			std::cout << "helyi fasz: " << i << endl;
 		}
 
-		for (heapValtozo = 11; heapValtozo < 21; heapValtozo++) {
-			std::cout << "heapfasz: " << heapValtozo << endl;
+		for (globValtozo = 11; globValtozo < 21; globValtozo++) {
+			std::cout << "globfasz: " << globValtozo << endl;
 		}
 
 		/*for (globalValtozo=21 ;  globalValtozo<31 ; globalValtozo++ ) {
@@ -153,7 +155,7 @@ int main() {// fõ "beépõ" függvény - azaz törzsprogram,azaz a program bele
 		char karakterTomb[5] = "elem";  // vegyukeszre -idezojel! es egy lezáro karakter! ezert 5 elemu. 
 		// A fordito automatan odateszi: ['e','l','e','m','\0'] - ha nem talál \0 jelet,akkor addig keres a memoriaban,mig nem talal valahol egy '\0' lezarot.
 		std::cout << " !  " << cars[2] << std::endl;
-		std::cout << "Ismeretlen választás. happy new year!  " << heapValtozo << std::endl;
+		std::cout << "Ismeretlen választás. happy new year!  " << globValtozo << std::endl;
 
 		break;
 	}
@@ -169,9 +171,9 @@ int main() {// fõ "beépõ" függvény - azaz törzsprogram,azaz a program bele
 }
 
 void egyikFunkcio() {																						//fuggvenyek atrakasa mashova, main utanra
-	cout << "hello heapvaltozo " << heapValtozo << std::endl;
+	cout << "hello heapvaltozo " << globValtozo << std::endl;
 }
 
 void masikFunkcio() {
-	cout << "hello masik-heapvaltozo " << heapValtozo << std::endl;
+	cout << "hello masik-heapvaltozo " << globValtozo << std::endl;
 }
