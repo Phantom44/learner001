@@ -51,7 +51,7 @@ using namespace std;  // :: operatorral tudom meghatarozni,hogy ha pl van egy ug
 
 
 int globValtozo; // ez global
-// new heapValtozo; // ez meg heap
+//new int heapValtozo; // ez meg heap
 void egyikFunkcio(); // csak szoltunk, h lesz egy ilyen tehat deklaracio
 void masikFunkcio();
 
@@ -94,7 +94,7 @@ int main() {// fõ "beépõ" függvény - azaz törzsprogram kezdete. Vajon mié
 		std::string szovegValtozoNev;
 		std::cout << std::endl;
 		globValtozo = 10;   // fentiheap kerdesmukodik-e, csakmertnemertem
-		egyikFunkcio();     //
+		egyikFunkcio();     
 		std::cout << " Hello,mi a neved te nyomesz? '\n' ";
 		std::cin >> szovegValtozoNev;
 		std::cout << "szia " << szovegValtozoNev << " cica, de jó vagy!";
