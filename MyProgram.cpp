@@ -1,4 +1,4 @@
-﻿// MyProgram.cpp : Defines the entry point for the application.é
+﻿// MyProgram.cpp : Defines the entry point for the application.
 //
 
 #include "MyProgram.h"
