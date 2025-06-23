@@ -75,7 +75,7 @@ int main() {// fõ "beépõ" függvény - azaz törzsprogram kezdete. Vajon mié
 
 
 	switch (valasztas) {
-	case 1: {
+	case 1: {  //egyes
 		std::cout << "Elso lehetoség" << std::endl;
 		std::cout << "funyiro-kapa motorja: briggs quantum xl 55  model type: 128802-0910-01 code: 99022557 briggs quantum xl 55  \n - de te ezzel ne is foglalkozz. lol." << std::endl;
 		std::cout << "na nezzunk egy kis pointeresdit:\n " << std::endl;
