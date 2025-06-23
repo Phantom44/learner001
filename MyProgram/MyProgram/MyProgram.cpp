@@ -122,7 +122,7 @@ int main() {// fõ "beépõ" függvény - azaz törzsprogram kezdete. Vajon mié
 		break;
 	}
 
-	case 4: {
+	case 4: {  // negyes
 		int i;
 		for (i = 1; i < 11; i++) {
 			std::cout << "helyi fasz: " << i << endl;
