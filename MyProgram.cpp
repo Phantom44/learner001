@@ -56,7 +56,7 @@ namespace ezEgyNamespace
 	{
 		std::cout << "ez egy fuggveny a namespace-ben" << std::endl;
 	}
-} // ez a namespace vege 
+} // ez a namespace vége  
 
 
 int main() 
