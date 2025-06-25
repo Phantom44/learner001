@@ -1,9 +1,4 @@
-﻿// MyProgram.cpp : Defines the entry point for the application.
-// v0.5
-
-#include "MyProgram.h"
-
-
+﻿
 /* 	-notepad run: cmd /k cd "c:\work\cpp\Github\learner001\" && gcc cppelso.cpp a.exe
 	-errol a honlaprol kell majd frissitenem a mingw32-t mert a pali azt mondja mashonnan installalt neha nem megyen.: http://www.osdn.net/pfoject/mingw
 	- .cpp file az ugynevezett forraskod file ,  .h az fejlécfile. és az altalam irt header file-okat "idézojelek" !! koze kell rakni , a standardokat <kacsacsor> !
@@ -34,8 +29,6 @@ kerdesek:
 -arduino ide-t letoltottem kivancsisagbol ,de ott nincs main csak loop. de akkor a forditas szempontjabol? (lib)
 -xml egyetlen mondatban: mire valo - egy adat leiro nyelv? - vannak kulon libraryk vagy mas nyelvekben elore megirt fuggvenyek,hogy ezt kezeljek? (azert konnyebb)
 -
-
-
 - stack pl main
 - heap /pointers/ dinamikusan kerek memoriat es csak az - kerhetek tobbet mint amit pl malloc() (nullpointer)
 /* dereference operator-
@@ -47,16 +40,27 @@ kerdesek:
 
 #include <iostream> // ez egy behivott file, elore elkeszitettek a cpp nagymesterek standard libraryt-abban van. Tartalmaz classokat es ojjektumokat is
 #include <windows.h> // valami nemtommi , nem talaltam a cpp-reference-ben,csak a wikiben. Asszem gui - azaz grafikus library windowsra. de ennek utana köll nézni egyszer.
-using namespace std;  // :: operatorral tudom meghatarozni,hogy ha pl van egy ugyanolyan nevu funkcio,akkor melyik namespace verziot vegye elo a prg. pl alfa::f() vagy beta::f()
+#include "MyProgram.h"
+// using namespace std;  // a :: operatorral tudom meghatarozni,hogy ha pl van egy ugyanolyan nevu funkcio,akkor melyik namespace verziot vegye elo a prg. pl alfa::f() vagy beta::f()
 
 
 int globValtozo; // ez global
 //new int heapValtozo; // ez meg heap
-void egyikFunkcio(); // csak szoltunk, h lesz egy ilyen tehat deklaracio
-void masikFunkcio();
+void egyikGlobalFunkcio(); // csak szoltunk, h lesz egy ilyen tehat deklaracio
+void masikGlobalFunkcio();
+
+namespace ezEgyNamespace 
+{	// ez egy namespace, ami segit elkerulni a nevek osszekeveredeset. 
+	//pl ha van egy masik fuggveny is, ami ugyanezt a nevet viseli, akkor a kettospontal jelolom melyikrol van szo.
+	void ezEgyFuggveny() 
+	{
+		std::cout << "ez egy fuggveny a namespace-ben" << std::endl;
+	}
+} // ez a namespace vege 
 
 
-int main() {// fõ "beépõ" függvény - azaz törzsprogram kezdete. Vajon miért int...? (oké 0-a jó kimenete,but who cares?) 
+int main() 
+{// fõ "beépõ" függvény - azaz törzsprogram kezdete. Vajon miért int...? (oké 0-a jó kimenete,but who cares?) 
 
 	SetConsoleCP(1250);  //elvileg magyarítás 
 	SetConsoleOutputCP(1250); // ja és a notepadot is át kellett tennem Central european- 1250-re.
@@ -64,7 +68,7 @@ int main() {// fõ "beépõ" függvény - azaz törzsprogram kezdete. Vajon mié
 	int valasztas;
 	valasztas = 0;
 
-	std::cout << "1) funyiro" << std::endl;
+	std::cout << "1) funyiro neve" << std::endl;
 	std::cout << "2) cicazas" << std::endl;
 	std::cout << "3) hahaha lehetoség" << std::endl;
 	std::cout << "4) forszarozas" << std::endl;
@@ -74,91 +78,102 @@ int main() {// fõ "beépõ" függvény - azaz törzsprogram kezdete. Vajon mié
 	std::cin >> valasztas;
 
 
-	switch (valasztas) {
-	case 1: {
-		std::cout << "Elso lehetoség" << std::endl;
-		std::cout << "funyiro-kapa motorja: briggs quantum xl 55  model type: 128802-0910-01 code: 99022557 briggs quantum xl 55  \n - de te ezzel ne is foglalkozz. lol." << std::endl;
-		std::cout << "na nezzunk egy kis pointeresdit:\n " << std::endl;
-		int egyStackValtozo = 4;
-		int* egyStackValtozoPointere = &egyStackValtozo;
-		std::cout << "valtozo erteke: " << egyStackValtozo << " itt lakik: " << &egyStackValtozo << " " << " emmeg a pojinter: " << egyStackValtozoPointere << " dereferált ertek vagymif@sz: " << *egyStackValtozoPointere << std::endl;
-		std::cout << std::endl;
-		std::cout << "jo vagy nem jo? (y or n)" << std::endl;
-			
-		break;
-	}
-
-
-	case 2: {
-		std::cout << "masodik lehetoség:" << std::endl;
-		std::string szovegValtozoNev;
-		std::cout << std::endl;
-		globValtozo = 10;   // fentiheap kerdesmukodik-e, csakmertnemertem
-		egyikFunkcio();     
-		std::cout << " Hello,mi a neved te nyomesz? '\n' ";
-		std::cin >> szovegValtozoNev;
-		std::cout << "szia " << szovegValtozoNev << " cica, de jó vagy!";
-		break;
-	}
-
-	case 3: {
-		std::cout << "harmadik lehetoség" << std::endl;
-		int elsoSzam;
-
-		std::cout << " légyszi cukika, irj be egy számot: "; //ez a retek, elfelejtette a central european kódolást? - nem csak a notepad++ban, consolon jo.
-		std::cin >> elsoSzam;
-
-		if (elsoSzam < 10) {  //ha kapcsos zarojel nelkul irom akkor nincs block, csak az elso utasitasra vonatkozik az if
-			std::cout << "hello jo kicsi,mondhatom...";
+	switch (valasztas) 
+	{
+		case 1: 
+		{ 
+			system("cls");
+			std::cout << "Elso lehetoség" << std::endl;
+			std::cout << "funyiro-kapa motorja: briggs quantum xl 55  model type: 128802-0910-01 code: 99022557 briggs quantum xl 55  \n - de te ezzel ne is foglalkozz. lol." << std::endl;
+			std::cout << "na nezzunk egy kis pointeresdit:\n " << std::endl;
+			int egyStackValtozo = 4;
+			int* egyStackValtozoPointere = &egyStackValtozo;
+			std::cout << "valtozo erteke: " << egyStackValtozo << " itt lakik: " << &egyStackValtozo << " " << " emmeg a pojinter: " << egyStackValtozoPointere << " dereferált ertek vagymif@sz: " << *egyStackValtozoPointere << std::endl;
+			std::cout << std::endl;
+			std::cout << "jo vagy nem jo? (y or n)" << std::endl;
+			break;
 		}
 
-		else if (elsoSzam < 20) {
-			std::cout << "hello " << "  " << elsoSzam << "-jára már nem is annyira jó..." << " \n";
+		case 2: 
+		{
+			system("cls");
+			std::cout << "masodik lehetoség:" << std::endl;
+			std::string szovegValtozoNev;
+			std::cout << std::endl;
+			globValtozo = 10;   // fentiheap kerdesmukodik-e, csakmertnemertem
+			egyikFunkcio();     
+			std::cout << " Hello,mi a neved te nyomesz? '\n' ";
+			std::cin >> szovegValtozoNev;
+			std::cout << "szia " << szovegValtozoNev << " cica, de jó vagy!";
+			break;
 		}
 
-		else {
-			std::cout << "hello " << "  " << elsoSzam << "ez ilyen kutyafüle 20 vagy annal nagyobb..." << " \n";
+		case 3: 
+		{
+			system("cls");
+			std::cout << "harmadik lehetoség" << std::endl;
+			int elsoSzam;
+
+			std::cout << " légyszi cukika, irj be egy számot: "; 
+					//ez a retek, elfelejtette a central european kódolást? - nem csak a notepad++ban, consolon jo.
+			std::cin >> elsoSzam;
+
+			if (elsoSzam < 10) 
+				{  //ha kapcsos zarojel nelkul irom akkor nincs block, csak az elso utasitasra vonatkozik az if
+				std::cout << "hello jo kicsi,mondhatom...";
+				}
+
+			else if (elsoSzam < 20) 
+				{
+				std::cout << "hello " << "  " << elsoSzam << "-jára már nem is annyira jó..." << " \n";
+				}
+
+			else 
+				{
+				std::cout << "hello " << "  " << elsoSzam << "ez ilyen kutyafüle 20 vagy annal nagyobb..." << " \n";
+				}
+			break;
 		}
-		break;
-	}
 
-	case 4: {
-		int i;
-		for (i = 1; i < 11; i++) {
-			std::cout << "helyi fasz: " << i << endl;
+		case 4: 
+		{
+			system("cls");
+			int i;
+			for (i = 1; i < 11; i++) {
+				std::cout << "helyi fasz: " << i << endl;
+			}
+
+			for (globValtozo = 11; globValtozo < 21; globValtozo++) {
+				std::cout << "globfasz: " << globValtozo << endl;
+			}
+
+			/*for (globalValtozo=21 ;  globalValtozo<31 ; globalValtozo++ ) {
+				std::cout << globalValtozo << endl;
+			}
+			*/
+
+			break;
 		}
 
-		for (globValtozo = 11; globValtozo < 21; globValtozo++) {
-			std::cout << "globfasz: " << globValtozo << endl;
+		case 5: 
+		{
+			system("cls"); // ez törli a konzol tartalmát, de csak windows alatt működik. Linuxon más parancs kellene.
+			std::cout << "ötödik lehetoség - még nem csinál semmit,tömb valami." << std::endl;
+			std::cout << "lol.";
+			std::cout << std::endl;
+			break;
 		}
 
-		/*for (globalValtozo=21 ;  globalValtozo<31 ; globalValtozo++ ) {
-			std::cout << globalValtozo << endl;
+		default: 
+		{
+			int weekdaysGametime[7] = { 353,35,33,224,224,24,244 };
+			string cars[4] = { "Volvo", "BMW", "Ford", "Mazda" };
+			char karakterTomb[5] = "elem";  // vegyukeszre -idezojel! es egy lezáro karakter! ezert 5 elemu. 
+			// A fordito automatan odateszi: ['e','l','e','m','\0'] - ha nem talál \0 jelet,akkor addig keres a memoriaban,mig nem talal valahol egy '\0' lezarot.
+			std::cout << " !  " << cars[2] << std::endl;
+			std::cout << "Ismeretlen választás. happy new year!  " << globValtozo << std::endl;
+			break;
 		}
-		*/
-
-		break;
-	}
-
-	case 5: {
-		std::cout << "ötödik lehetoség - még nem csinál semmit,tömb valami." << std::endl;
-		std::cout << "lol.";
-		std::cout << std::endl;
-		break;
-	}
-
-
-
-	default: {
-		int weekdaysGametime[7] = { 353,35,33,224,224,24,244 };
-		string cars[4] = { "Volvo", "BMW", "Ford", "Mazda" };
-		char karakterTomb[5] = "elem";  // vegyukeszre -idezojel! es egy lezáro karakter! ezert 5 elemu. 
-		// A fordito automatan odateszi: ['e','l','e','m','\0'] - ha nem talál \0 jelet,akkor addig keres a memoriaban,mig nem talal valahol egy '\0' lezarot.
-		std::cout << " !  " << cars[2] << std::endl;
-		std::cout << "Ismeretlen választás. happy new year!  " << globValtozo << std::endl;
-
-		break;
-	}
 	}
 
 
@@ -170,10 +185,12 @@ int main() {// fõ "beépõ" függvény - azaz törzsprogram kezdete. Vajon mié
 	return (0);
 }
 
-void egyikFunkcio() {																						//fuggvenyek atrakasa mashova, main utanra
+void egyikGlobalFunkcio() 
+{		//fuggvenyek atrakasa mashova, main utanra
 	cout << "hello heapvaltozo " << globValtozo << std::endl;
 }
 
-void masikFunkcio() {
+void masikGlobalFunkcio() 
+{
 	cout << "hello masik-heapvaltozo " << globValtozo << std::endl;
 }
