@@ -9,19 +9,26 @@
 kerdesek:
 -válzozok: heap, globalis es lokalis (függvényen belülröl kihozatal)?,
 (tobb helyen emlegetik,hogy x byte-ot foglal el egy valtozo,avagy miert fontos ez - kezelni kell a memoria teruletet vagy csak figyelembe venni?)
-
+- *p + 3 = p[3] jelölés egyenloséget fejez ki, ami pointer aritmetika és tömb indexelés közötti kapcsolatot mutatja be.
 -mi az a namespace? ::,
 -és van-e köze az oop-hez? (objektumokhoz),(oke tudom mi a construktor es?)
 - class avagy induljunk ki a https://en.cppreference.com/w/ -honlapból. a pöttyözés.  std::cin.ignore() ; a referencia honlapon hogyan?
-- van pl egy library wxWidgets (nem tudom kukáztam a netrol https://www.youtube.com/watch?v=BjQhp0eHmJw&list=PLFk1_lkqT8MbVOcwEppCPfjGOGhLvcf9G  , annak vannak heather filejai,ott látom a benne használható ?metódusokat?)
+- van pl egy library wxWidgets (nem tudom kukáztam a netrol https://www.youtube.com/watch?v=BjQhp0eHmJw&list=PLFk1_lkqT8MbVOcwEppCPfjGOGhLvcf9G  , annak vannak heather filejai pl include folder,ott látom a benne használható ?metódusokat?)
 
--oop filestruktúra (h mint deklaráció és .cpp mint definició?)
+-oop filestruktúra (h mint deklaráció és .cpp mint definició?) implementacio!
 
 - << operator , bar nem biztos,hogy ezt most meg kell ertenem.,
 
 -arduino ide-t letoltottem kivancsisagbol ,de ott nincs main csak loop. de akkor a forditas szempontjabol? (lib)
 -xml egyetlen mondatban: mire valo - egy adat leiro nyelv? - vannak kulon libraryk vagy mas nyelvekben elore megirt fuggvenyek,hogy ezt kezeljek? (azert konnyebb)
 -
+
+
+- stack pl main
+- heap /pointers/ dinamikusan kerek memoriat es csak az - kerhetek tobbet mint amit pl malloc() (nullpointer)
+/* dereference operator-
+
+
 */
 
 
